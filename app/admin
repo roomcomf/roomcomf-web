@@ -1,0 +1,63 @@
+"use client";
+
+import { useState } from "react";
+
+export default function AdminPage() {
+  const [note, setNote] = useState("");
+  const [saved, setSaved] = useState<string[]>([]);
+
+  function saveNote() {
+    if (!note.trim()) return;
+    setSaved([note, ...saved]);
+    setNote("");
+  }
+
+  return (
+    <main className="min-h-screen bg-black p-5 text-white">
+      <section className="mx-auto max-w-5xl py-10">
+        <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/40">
+          ROOMCOMF ADMIN
+        </p>
+
+        <h1 className="text-4xl font-light">
+          Простая панель управления
+        </h1>
+
+        <p className="mt-5 max-w-2xl text-sm leading-7 text-white/55">
+          Здесь можно записывать задачи, идеи, заявки, объекты и всё важное по ООО «Румкомф».
+        </p>
+
+        <div className="mt-10 rounded-3xl border border-white/10 bg-white/[0.04] p-6">
+          <label className="text-sm text-white/60">
+            Что добавить?
+          </label>
+
+          <textarea
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
+            placeholder="Например: Позвонить клиенту, добавить объект, проверить материалы..."
+            className="mt-4 h-40 w-full rounded-2xl border border-white/10 bg-black p-4 text-white outline-none"
+          />
+
+          <button
+            onClick={saveNote}
+            className="mt-4 rounded-full bg-white px-6 py-4 text-xs uppercase tracking-[0.25em] text-black"
+          >
+            Сохранить
+          </button>
+        </div>
+
+        <div className="mt-10 grid gap-4">
+          {saved.map((item, index) => (
+            <div
+              key={index}
+              className="rounded-2xl border border-white/10 bg-white/[0.03] p-5"
+            >
+              {item}
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
