@@ -8,6 +8,7 @@ export default function AdminPage() {
 
   function saveNote() {
     if (!note.trim()) return;
+
     setSaved([note, ...saved]);
     setNote("");
   }
@@ -19,24 +20,20 @@ export default function AdminPage() {
           ROOMCOMF ADMIN
         </p>
 
-        <h1 className="text-4xl font-light">
-          Простая панель управления
+        <h1 className="text-4xl font-light sm:text-6xl">
+          Панель управления
         </h1>
 
         <p className="mt-5 max-w-2xl text-sm leading-7 text-white/55">
-          Здесь можно записывать задачи, идеи, заявки, объекты и всё важное по ООО «Румкомф».
+          Здесь можно записывать задачи, идеи, заявки, объекты и всё важное.
         </p>
 
         <div className="mt-10 rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-          <label className="text-sm text-white/60">
-            Что добавить?
-          </label>
-
           <textarea
             value={note}
             onChange={(e) => setNote(e.target.value)}
-            placeholder="Например: Позвонить клиенту, добавить объект, проверить материалы..."
-            className="mt-4 h-40 w-full rounded-2xl border border-white/10 bg-black p-4 text-white outline-none"
+            placeholder="Напиши что-нибудь..."
+            className="h-40 w-full rounded-2xl border border-white/10 bg-black p-4 text-white outline-none"
           />
 
           <button
