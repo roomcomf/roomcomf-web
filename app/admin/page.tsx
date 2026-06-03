@@ -1,58 +1,28 @@
-"use client";
-
-import { useState } from "react";
-
-export default function AdminPage() {
-  const [note, setNote] = useState("");
-  const [saved, setSaved] = useState<string[]>([]);
-
-  function saveNote() {
-    if (!note.trim()) return;
-
-    setSaved([note, ...saved]);
-    setNote("");
-  }
-
+export default function Home() {
   return (
-    <main className="min-h-screen bg-black p-5 text-white">
-      <section className="mx-auto max-w-5xl py-10">
-        <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/40">
-          ROOMCOMF ADMIN
-        </p>
+    <main className="min-h-screen bg-black text-white">
+      <section className="flex min-h-screen items-center px-6">
+        <div className="mx-auto max-w-5xl">
+          <p className="mb-8 text-xs uppercase tracking-[0.4em] text-white/40">
+            OFFICIAL WEBSITE
+          </p>
 
-        <h1 className="text-4xl font-light sm:text-6xl">
-          Панель управления
-        </h1>
+          <h1 className="text-[clamp(3rem,12vw,10rem)] font-extralight leading-none">
+            ROOMCOMF
+          </h1>
 
-        <p className="mt-5 max-w-2xl text-sm leading-7 text-white/55">
-          Здесь можно записывать задачи, идеи, заявки, объекты и всё важное.
-        </p>
+          <p className="mt-8 max-w-2xl text-lg leading-8 text-white/60">
+            ООО «Румкомф» — официальный цифровой фасад компании.
+          </p>
 
-        <div className="mt-10 rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-          <textarea
-            value={note}
-            onChange={(e) => setNote(e.target.value)}
-            placeholder="Напиши что-нибудь..."
-            className="h-40 w-full rounded-2xl border border-white/10 bg-black p-4 text-white outline-none"
-          />
-
-          <button
-            onClick={saveNote}
-            className="mt-4 rounded-full bg-white px-6 py-4 text-xs uppercase tracking-[0.25em] text-black"
-          >
-            Сохранить
-          </button>
-        </div>
-
-        <div className="mt-10 grid gap-4">
-          {saved.map((item, index) => (
-            <div
-              key={index}
-              className="rounded-2xl border border-white/10 bg-white/[0.03] p-5"
+          <div className="mt-12">
+            <a
+              href="/facades"
+              className="inline-block rounded-full bg-white px-8 py-4 text-xs uppercase tracking-[0.25em] text-black"
             >
-              {item}
-            </div>
-          ))}
+              Перейти к фасадному направлению
+            </a>
+          </div>
         </div>
       </section>
     </main>
