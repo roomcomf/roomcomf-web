@@ -1,15 +1,35 @@
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-7xl tracking-[0.2em]">
-          ROOMCOMF
-        </h1>
+    <main
+      style={{
+        height: "100vh",
+        background: "#000",
+        color: "#fff",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        fontFamily: "sans-serif",
+      }}
+    >
+      <h1
+        style={{
+          fontSize: "64px",
+          letterSpacing: "12px",
+          marginBottom: "20px",
+        }}
+      >
+        ROOMCOMF
+      </h1>
 
-        <p className="mt-6 text-zinc-400 text-xl">
-          Фасадные системы и строительные материалы
-        </p>
-      </div>
+      <p
+        style={{
+          fontSize: "20px",
+          opacity: 0.7,
+        }}
+      >
+        Фасадные системы и строительные материалы
+      </p>
     </main>
   );
 }
